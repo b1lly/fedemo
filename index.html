@@ -75,7 +75,7 @@
 
           <section>
             <h2>Box Model</h2>
-            <ul>
+            <ul style="position: relative; top: -2em;">
               <li class="fragment"><code>width</code></li>
               <li class="fragment"><em>height</em></li>
               <li class="fragment"><em>border</em></li>
@@ -83,12 +83,12 @@
               <li class="fragment"><strong>padding</strong></li>
             </ul>
             <span class="fragment roll-in">
-              <img class="fragment" src="lib/img/boxmodel.png">
+              <img src="lib/img/boxmodel.png">
             </span>
             <aside class="notes">
               <ul>
                 <li>The world is boxes</li>
-                <li>Every element is a box</li>
+                <li>Every element is represented by a rectangluar box</li>
                 <li>Box model is made up of many Layers</li>
                 <li>Padding adds to the width</li>
                 <li>Can help with positioning</li>
@@ -110,12 +110,91 @@
             </ul>
             <aside class="notes">
               <ul>
+                <li>Not to be confused with the box model.</li>
+                <li>Most important property for controlling layout.</li>
+                <li>Every element has a default display value depending on what type of element it is</li>
                 <li>Default behavior is defined in HTML specifications or from the browser/user default stylesheet.</li>
                 <li>None tells browser not to render/hide all descendents</li>
               </ul>
             </aside>
           </section>
 
+          <section>
+            <h2>Block elements</h2>
+            <div class="fragment roll-in" data-fragment-index="1">
+              <blockquote class="fragment shrink" data-fragment-index="4">
+                By default, block level elements start on a new line and <span class="fragment highlight-green" data-fragment-index="2">inherit the width of their parent</span> container.
+
+               <pre class="fragment" data-fragment-index="3"><code>e.g.: div, p, form, h1, h2, h3, ul, ol</code></pre>
+              </blockquote>
+            </div>
+
+<div class="fragment js-block-code">
+            <pre><code class="css" contenteditable data-trim>
+/* CSS */
+.parent-wrap {
+  width: 500px;
+  height: 200px;
+  background-color: #ff0000; /* red */
+}
+
+.child-block-element {
+  background-color: #0000ff; /* blue */
+}
+</code></pre>
+            <pre><code class="html" contenteditable data-trim>
+<!-- HTML -->
+<div class="parent-wrap">
+  <div class="child-block-element">
+    This is my content
+  </div>
+</div>
+</code></pre>
+</div>
+            <aside class="notes">
+              <ul>
+                <li>They act as if they have a line break before and after.</li>
+                <li>They inherit width of parent, and the height of it's content</li>
+                <li>Default behavior is defined in HTML specifications or from the browser/user default stylesheet.</li>
+              </ul>
+            </aside>
+          </section>
+          <section>
+            <h2>Inline elements</h2>
+            <div class="fragment roll-in" data-fragment-index="1">
+              <blockquote class="fragment shrink" data-fragment-index="5">
+                By default, inline elements <span class="fragment highlight-green" data-fragment-index="2">inherit the width of their content</span> and
+                <span class="fragment highlight-green" data-fragment-index="3">will not disrupt the flow</span> of the content around it.
+
+               <pre class="fragment" data-fragment-index="4"><code>e.g.: span, a, input, button, img</code></pre>
+              </blockquote>
+            </div>
+
+<div class="fragment js-block-code">
+            <pre><code class="css" contenteditable data-trim>
+/* CSS */
+.highlight {
+  color: #0000ff; /* blue */
+  text-decoration: underline;
+}
+</code></pre>
+<pre><code class="html" contenteditable data-trim>
+<!-- HTML -->
+<p>
+  This is a paragaph of text and I want to
+  <span class="highlight">highlight some words</span>.
+</p>
+</code></pre>
+</div>
+            <aside class="notes">
+              <ul>
+                <li>Do not disrupt the flow of content around it.</li>
+                <li>They inherit width and height of it's content</li>
+                <li>Default behavior is defined in HTML specifications or from the browser/user default stylesheet.</li>
+                <li>May only contain data and other inline elements</li>
+              </ul>
+            </aside>
+          </section>
           <section>
             <h2>Positioning</h2>
             <ul>
