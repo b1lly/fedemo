@@ -114,7 +114,7 @@
                 <li>Most important property for controlling layout.</li>
                 <li>Every element has a default display value depending on what type of element it is</li>
                 <li>Default behavior is defined in HTML specifications or from the browser/user default stylesheet.</li>
-                <li>None tells browser not to render/hide all descendents</li>
+                <li>"none" tells browser not to render/hide all descendents</li>
               </ul>
             </aside>
           </section>
@@ -154,8 +154,10 @@
             <aside class="notes">
               <ul>
                 <li>They act as if they have a line break before and after.</li>
+                <li>Intended to be vertically stacked</li>
                 <li>They inherit width of parent, and the height of it's content</li>
                 <li>Default behavior is defined in HTML specifications or from the browser/user default stylesheet.</li>
+                <li>Respect all margin and padding properties</li>
               </ul>
             </aside>
           </section>
@@ -188,32 +190,276 @@
 </div>
             <aside class="notes">
               <ul>
+                <li>Allow elements to sit to the left and right</li>
+                <li>Respect left & Right margins and padding, but not top & bottom</li>
+                <li>They inherit width and height of it's content</li>
+                <li>May only contain data and other inline elements</li>
+                <li>Cannot have a width or height set</li>
+              </ul>
+            </aside>
+          </section>
+          <section data-transition="zoom">
+            <h2>Inline-block elements</h2>
+            <div class="fragment roll-in" data-fragment-index="1">
+              <blockquote class="fragment shrink" data-fragment-index="5">
+                Inline-block elements <span class="fragment highlight-green" data-fragment-index="2">are a hybrid between block and inline elements.</span>
+                They will not disrupt the flow of content around it and they <span class="fragment highlight-green" data-fragment-index="3">respect width, height, margin and padding properties.</span>
+              </blockquote>
+            </div>
+
+<div class="fragment">
+            <pre><code class="css" contenteditable data-trim>
+/* CSS */
+#nav {
+  margin: 0;
+  padding: 0;
+}
+
+#nav li {
+  display: inline-block;
+  height: 25px;
+  width: 125px;
+  padding: 10px;
+  margin-left: 10px;
+}
+</code></pre>
+<pre><code class="html" contenteditable data-trim>
+<!-- HTML -->
+<ul id="nav">
+  <li>Home</li>
+  <li>Location CMS</li>
+  <li>Listings</li>
+  <li>Social</li>
+  <li>Analytics</li>
+</ul>
+</code></pre>
+</div>
+            <aside class="notes">
+              <ul>
                 <li>Do not disrupt the flow of content around it.</li>
+                <li>Allow elements to sit to the left and right</li>
                 <li>They inherit width and height of it's content</li>
                 <li>Default behavior is defined in HTML specifications or from the browser/user default stylesheet.</li>
                 <li>May only contain data and other inline elements</li>
+                <li>Respect left/right margins and padding, but not top & bottom</li>
+                <li>Cannot have a width and height set with css</li>
               </ul>
             </aside>
           </section>
           <section>
-            <h2>Positioning</h2>
-            <ul>
-              <li class="fragment"><code>static</code></li>
-              <li class="fragment"><em>relative</em></li>
-              <li class="fragment"><strong>absolute</strong></li>
-              <li class="fragment"><strong>fixed</strong></li>
-            </ul>
+            <h2>Demo</h2>
+            <h4>What the block?</h4>
           </section>
+          <section>
+            <h2>Positioning Schemes</h2>
+            <div class="fragment roll-in" data-fragment-index="0">
+              <blockquote class="fragment shrink" data-fragment-index="2">
+                 <span class="fragment highlight-blue" data-fragment-index="1">Normal flow</span> boxes are laid out one after the other. In a block formatting context, they are laid out vertically;
+                 in an inline formatting context, they are laid out horizontally;
+              </blockquote>
+            </div>
+            <div class="fragment roll-in" data-fragment-index="3">
+              <blockquote class="fragment shrink" data-fragment-index="5">
+                 In the <span class="fragment highlight-blue" data-fragment-index="4">float positioning scheme</span>, floated boxes are positioned at the beginning or end of the current line.
+              </blockquote>
+            </div>
+            <div class="fragment roll-in" data-fragment-index="6">
+              <blockquote class="fragment shrink" data-fragment-index="8">
+                 The <span class="fragment highlight-blue" data-fragment-index="7">absolute positioning scheme</span>, boxes are entirely removed from the flow and don't interact with it at all. They are positioned relative to their containing block.
+              </blockquote>
+            </div>
+            <aside class="notes">
+              <ul>
+                <li>This leads to the property that text flows along the edge of the floating boxes, except if told differently by the clear CSS property.</li>
+              </ul>
+            </aside>
+          </section>
+          <section>
+            <h2>Positioning Properties</h2>
+              <ul>
+                <li class="fragment"><code>static</code></li>
+                <li class="fragment"><em>relative</em></li>
+                <li class="fragment"><strong>absolute</strong></li>
+                <li class="fragment"><strong>fixed</strong></li>
+              </ul>
+            </section>
+          <section>
+            <h2>Static Position</h2>
+            <div class="fragment roll-in" data-fragment-index="0">
+              <blockquote class="fragment shrink" data-fragment-index="1">
+                 <span class="fragment highlight-blue" data-fragment-index="0">Classification: </span> Normal flow positioning scheme
+              </blockquote>
+            </div>
+            <div class="fragment roll-in" data-fragment-index="2">
+              <blockquote class="fragment shrink" data-fragment-index="4">
+                 Boxes are drawn strictly based on their display properties. <span class="fragment highlight-green" data-fragment-index="3">Static is the default positioning for all elements</span> unless otherwise specified.
+              </blockquote>
+            </div>
+<div class="fragment js-block-code">
+            <pre><code class="css" contenteditable data-trim>
+/* CSS */
+#box,
+#second-box {
+  position: static;
+  width: 100px;
+  height: 100px;
+}
 
+.my-text {
+  display: inline;
+  position: static;
+}
+</code></pre>
+<pre><code class="html" contenteditable data-trim>
+<!-- HTML -->
+<div id="box">This is a box</div>
+<div id="second-box">This is my second box</div>
+
+<p>
+  This is a string of <span class="my-text">text</span> and we have
+  a bunch of <span class="my-text">text</span> in it.
+</p>
+</code></pre>
+</div>
+          </section>
+          <section>
+            <h2>Relative Position</h2>
+<div class="fragment roll-in" data-fragment-index="0">
+              <blockquote class="fragment shrink" data-fragment-index="1">
+                 <span class="fragment highlight-blue" data-fragment-index="0">Classification: </span> Normal flow positioning scheme
+              </blockquote>
+            </div>
+            <div class="fragment roll-in" data-fragment-index="2">
+              <blockquote class="fragment shrink" data-fragment-index="4">
+                 Boxes are drawn relative to their static position <span class="fragment highlight-green" data-fragment-index="3">with an offset defined by the top, bottom, left, and right</span> CSS properties.
+              </blockquote>
+            </div>
+<div class="fragment js-block-code">
+            <pre><code class="css" contenteditable data-trim>
+/* CSS */
+#box,
+#second-box {
+  width: 100px;
+  height: 100px;
+}
+
+#second-box {
+  position: relative;
+  top: 20px;
+  left: 50px;
+}
+
+</code></pre>
+<pre><code class="html" contenteditable data-trim>
+<!-- HTML -->
+<div id="box">This is a box</div>
+<div id="second-box">This is my second box</div>
+</code></pre>
+</div>
+          </section>
+          <section>
+            <h2>Absolute Position</h2>
+            <div class="fragment roll-in" data-fragment-index="0">
+              <blockquote class="fragment shrink" data-fragment-index="1">
+                 <span class="fragment highlight-blue" data-fragment-index="0">Classification: </span> Absolute positioning scheme
+              </blockquote>
+            </div>
+            <div class="fragment roll-in" data-fragment-index="2">
+              <blockquote class="fragment shrink" data-fragment-index="4">
+                 Boxes are drawn <span class="fragment highlight-green" data-fragment-index="3">relative to their containing block using the top, bottom, left, and right</span> CSS properties. By default, they inherit the width of their content.
+              </blockquote>
+            </div>
+<div class="fragment js-block-code">
+            <pre><code class="css" contenteditable data-trim>
+/* CSS */
+#box {
+  position: relative;
+  width: 500px;
+  height: 500px;
+}
+
+#second-box {
+  position: absolute;
+  height: 100px;
+  bottom: 100px;
+  left: 50px;
+}
+
+</code></pre>
+<pre><code class="html" contenteditable data-trim>
+<!-- HTML -->
+<div id="box">
+  This is a containing box
+  <div id="second-box">This is my absolute box</div>
+</div>
+</code></pre>
+</div>
+            <aside class="notes">
+              <ul>
+                <li>Inherit the width of their content</li>
+                <li>Absolute position elementes are removed are entirely removed from the flow and don't interact with it at all.</li>
+              </ul>
+            </aside>
+          </section>
+          <section data-transition="zoom">
+            <h2>Fixed Position</h2>
+            <div class="fragment roll-in" data-fragment-index="0">
+              <blockquote class="fragment shrink" data-fragment-index="1">
+                 <span class="fragment highlight-blue" data-fragment-index="0">Classification: </span> Absolute positioning scheme
+              </blockquote>
+            </div>
+            <div class="fragment roll-in" data-fragment-index="2">
+              <blockquote class="fragment shrink" data-fragment-index="4">
+                A fixed position element is an <span class="fragment highlight-green" data-fragment-index="3">absolutely positioned element thats containing block is the viewport.</span>
+                Fixed elements will be stuck to the screen when scrolling as the viewport is not moving.
+              </blockquote>
+            </div>
+<div class="fragment js-block-code">
+            <pre><code class="css" contenteditable data-trim>
+/* CSS */
+#second-box {
+  position: fixed;
+  height: 100px;
+  bottom: 100px;
+  left: 50px;
+}
+
+</code></pre>
+<pre><code class="html" contenteditable data-trim>
+<!-- HTML -->
+<div id="box">
+  This is a containing box
+  <div id="second-box">This is my fixed box</div>
+</div>
+</code></pre>
+</div>
+            <aside class="notes">
+              <ul>
+                <li>Inherit the width of their content</li>
+                <li>Absolute position elementes are removed are entirely removed from the flow and don't interact with it at all.</li>
+              </ul>
+            </aside>
+          </section>
+          <section>
+            <h2>Demo</h2>
+            <h4>How to use positioning for layouts</h4>
+          </section>
           <section>
             <h2>Floats</h2>
             <p>Press down or up to navigate.</p>
           </section>
-
-          <aside class="notes">
-
-          </aside>
+          <section>
+            <h2>Containment</h2>
+            <p>Press down or up to navigate.</p>
+          </section>
+          <section>
+            <h2>Demo</h2>
+          </section>
+          <section>
+            <h2>Workshop</h2>
+          </section>
         </section>
+      </section>
 
         <!-- Example of nested vertical slides -->
         <section>
