@@ -158,23 +158,22 @@
                 By default, inline elements <span class="fragment highlight-green" data-fragment-index="2">inherit the width of their content</span> and
                 <span class="fragment highlight-green" data-fragment-index="3">will not disrupt the flow</span> of the content around it.
 
-               <pre class="fragment" data-fragment-index="4"><code>e.g.: span, a, input, button, img</code></pre>
+               <pre class="fragment" data-fragment-index="4"><code>e.g.: span, a, input, button</code></pre>
               </blockquote>
             </div>
 
 <div class="fragment js-block-code">
             <pre><code class="css" contenteditable data-trim>
 /* CSS */
-.highlight {
-  color: #0000ff; /* blue */
+.my-text {
   text-decoration: underline;
 }
 </code></pre>
 <pre><code class="html" contenteditable data-trim>
 <!-- HTML -->
 <p>
-  This is a paragaph of text and I want to
-  <span class="highlight">highlight some words</span>.
+  This is a string of <span class="my-text">text</span> and we have
+  a bunch of text in it.
 </p>
 </code></pre>
 </div>
@@ -236,12 +235,12 @@
             </div>
             <div class="fragment roll-in" data-fragment-index="3">
               <blockquote class="fragment shrink" data-fragment-index="5">
-                 With the the <span class="fragment highlight-blue" data-fragment-index="4">float positioning scheme</span>, floated boxes are positioned at the beginning or end of the current line.
+                 With the <span class="fragment highlight-blue" data-fragment-index="4">absolute positioning scheme</span>, boxes are entirely removed from the normal flow and don't interact with it at all. They are positioned relative to their containing block.
               </blockquote>
             </div>
             <div class="fragment roll-in" data-fragment-index="6">
               <blockquote class="fragment shrink" data-fragment-index="8">
-                 With the <span class="fragment highlight-blue" data-fragment-index="7">absolute positioning scheme</span>, boxes are entirely removed from the normal flow and don't interact with it at all. They are positioned relative to their containing block.
+                 With the the <span class="fragment highlight-blue" data-fragment-index="7">float positioning scheme</span>, floated boxes are positioned at the beginning or end of the current line.
               </blockquote>
             </div>
             <aside class="notes">
@@ -329,7 +328,7 @@
             </div>
             <div class="fragment roll-in" data-fragment-index="2">
               <blockquote class="fragment shrink" data-fragment-index="4">
-                 Boxes are drawn <span class="fragment highlight-green" data-fragment-index="3">relative to their containing block using the top, bottom, left, and right</span> CSS properties. By default, they inherit the width of their content.
+                 Boxes are drawn <span class="fragment highlight-green" data-fragment-index="3">based on the closest 'relative' parent element using the top, bottom, left, and right</span> CSS properties. By default, they inherit the width of their content.
               </blockquote>
             </div>
 <div class="fragment js-block-code">
@@ -408,11 +407,50 @@
           </section>
           <section>
             <h2>Floats</h2>
-            <p>Press down or up to navigate.</p>
+            <div class="fragment roll-in" data-fragment-index="0">
+              <blockquote class="fragment shrink" data-fragment-index="1">
+                 <span class="fragment highlight-blue" data-fragment-index="0">Classification: </span> Float positioning scheme
+              </blockquote>
+            </div>
+            <div class="fragment roll-in" data-fragment-index="2">
+              <blockquote class="fragment shrink" data-fragment-index="5">
+                Float is a CSS property that will <span class="fragment highlight-green" data-fragment-index="3">push an element to the left or right.</span>
+                Floating an element <span class="fragment highlight-green" data-fragment-index="4">allows other elements to wrap around it.</span>
+              </blockquote>
+            </div>
+            <div class="fragment roll-in" data-fragment-index="6">
+              <blockquote class="fragment shrink" data-fragment-index="8">
+                Float can only be used on <span class="fragment highlight-green" data-fragment-index="7">static or relative</span> positioned elements.
+              </blockquote>
+            </div>
+            <div class="fragment roll-in" data-fragment-index="9">
+              <blockquote class="fragment shrink" data-fragment-index="11">
+                Floated elements <span class="fragment highlight-green" data-fragment-index="10">are powerful when used right</span>.
+              </blockquote>
+            </div>
+            <aside class="notes">
+              <ul>
+                <li>Floated elements come outside the natural flow</li>
+              </ul>
+            </aside>
           </section>
           <section>
-            <h2>Containment</h2>
-            <p>Press down or up to navigate.</p>
+            <h2>Float Containment</h2>
+            <div class="fragment roll-in" data-fragment-index="0">
+              <blockquote class="fragment shrink" data-fragment-index="1">
+                Floated elements can cause problems with elements that are inside the normal flow.
+              </blockquote>
+            </div>
+            <div class="fragment roll-in" data-fragment-index="2">
+              <blockquote class="fragment shrink" data-fragment-index="5">
+                Use a "clearfix" to contain floated elements properly inside an element that sits inside the normal flow.
+              </blockquote>
+            </div>
+            <div class="fragment roll-in" data-fragment-index="6">
+              <blockquote class="fragment shrink" data-fragment-index="8">
+                Always contain your floats.
+              </blockquote>
+            </div>
           </section>
           <section>
             <h2>Demo</h2>
