@@ -51,8 +51,8 @@
                 <li>Introduction</li>
                 <li>Presentation and workshop</li>
                 <li>Coding demo</li>
-                <li>layouts (boxmodel, display props, positioning, and floats)</li>
-                <li>jQuery (fundementals, selectors/traversing/ctx, events/handlers, performance)</li>
+                <li>Layouts</li>
+                <li>jQuery</li>
               </ul>
             </aside>
           </section>
@@ -64,9 +64,7 @@
               </p>
               <aside class="notes">
                 <ul>
-                  <li>Presentation layer</li>
-                  <li>HTML/CSS</li>
-                  <li>Arrangement of elements</li>
+                  <li>Presentation layer (HTML/CSS)</li>
                   <li>Page structure</li>
                   <li>Micro vs Macro layouts</li>
                 </ul>
@@ -87,11 +85,9 @@
             </span>
             <aside class="notes">
               <ul>
-                <li>The world is boxes</li>
                 <li>Every element is represented by a rectangluar box</li>
                 <li>Box model is made up of many Layers</li>
                 <li>Padding adds to the width</li>
-                <li>Can help with positioning</li>
             </aside>
           </section>
 
@@ -110,11 +106,9 @@
             </ul>
             <aside class="notes">
               <ul>
-                <li>Not to be confused with the box model.</li>
                 <li>Most important property for controlling layout.</li>
-                <li>Every element has a default display value depending on what type of element it is</li>
-                <li>Default behavior is defined in HTML specifications or from the browser/user default stylesheet.</li>
-                <li>"none" tells browser not to render/hide all descendents</li>
+                <li>All elements have a default display property</li>
+                <li>Behavior of an element is based on the HTML spec.</li>
               </ul>
             </aside>
           </section>
@@ -134,12 +128,10 @@
 /* CSS */
 .parent-wrap {
   width: 500px;
-  height: 200px;
-  background-color: #ff0000; /* red */
 }
 
 .child-block-element {
-  background-color: #0000ff; /* blue */
+  height: 200px;
 }
 </code></pre>
             <pre><code class="html" contenteditable data-trim>
@@ -155,8 +147,6 @@
               <ul>
                 <li>They act as if they have a line break before and after.</li>
                 <li>Intended to be vertically stacked</li>
-                <li>They inherit width of parent, and the height of it's content</li>
-                <li>Default behavior is defined in HTML specifications or from the browser/user default stylesheet.</li>
                 <li>Respect all margin and padding properties</li>
               </ul>
             </aside>
@@ -190,9 +180,7 @@
 </div>
             <aside class="notes">
               <ul>
-                <li>Allow elements to sit to the left and right</li>
-                <li>Respect left & Right margins and padding, but not top & bottom</li>
-                <li>They inherit width and height of it's content</li>
+                <li>Left & right margins/padding, but not top/bottom</li>
                 <li>May only contain data and other inline elements</li>
                 <li>Cannot have a width or height set</li>
               </ul>
@@ -210,17 +198,11 @@
 <div class="fragment">
             <pre><code class="css" contenteditable data-trim>
 /* CSS */
-#nav {
-  margin: 0;
-  padding: 0;
-}
-
 #nav li {
   display: inline-block;
   height: 25px;
   width: 125px;
   padding: 10px;
-  margin-left: 10px;
 }
 </code></pre>
 <pre><code class="html" contenteditable data-trim>
@@ -236,13 +218,8 @@
 </div>
             <aside class="notes">
               <ul>
-                <li>Do not disrupt the flow of content around it.</li>
-                <li>Allow elements to sit to the left and right</li>
-                <li>They inherit width and height of it's content</li>
-                <li>Default behavior is defined in HTML specifications or from the browser/user default stylesheet.</li>
-                <li>May only contain data and other inline elements</li>
-                <li>Respect left/right margins and padding, but not top & bottom</li>
-                <li>Cannot have a width and height set with css</li>
+                <li>Respect all box model properties and values</li>
+                <li>Can have a width and hight</li>
               </ul>
             </aside>
           </section>
@@ -254,18 +231,17 @@
             <h2>Positioning Schemes</h2>
             <div class="fragment roll-in" data-fragment-index="0">
               <blockquote class="fragment shrink" data-fragment-index="2">
-                 <span class="fragment highlight-blue" data-fragment-index="1">Normal flow</span> boxes are laid out one after the other. In a block formatting context, they are laid out vertically;
-                 in an inline formatting context, they are laid out horizontally;
+                 With the <span class="fragment highlight-blue" data-fragment-index="1">normal flow positioning scheme, </span> boxes are laid out one after the other. Block elements are laid out vertically and inline elements are are laid out horizontally.
               </blockquote>
             </div>
             <div class="fragment roll-in" data-fragment-index="3">
               <blockquote class="fragment shrink" data-fragment-index="5">
-                 In the <span class="fragment highlight-blue" data-fragment-index="4">float positioning scheme</span>, floated boxes are positioned at the beginning or end of the current line.
+                 With the the <span class="fragment highlight-blue" data-fragment-index="4">float positioning scheme</span>, floated boxes are positioned at the beginning or end of the current line.
               </blockquote>
             </div>
             <div class="fragment roll-in" data-fragment-index="6">
               <blockquote class="fragment shrink" data-fragment-index="8">
-                 The <span class="fragment highlight-blue" data-fragment-index="7">absolute positioning scheme</span>, boxes are entirely removed from the flow and don't interact with it at all. They are positioned relative to their containing block.
+                 With the <span class="fragment highlight-blue" data-fragment-index="7">absolute positioning scheme</span>, boxes are entirely removed from the normal flow and don't interact with it at all. They are positioned relative to their containing block.
               </blockquote>
             </div>
             <aside class="notes">
@@ -296,20 +272,6 @@
               </blockquote>
             </div>
 <div class="fragment js-block-code">
-            <pre><code class="css" contenteditable data-trim>
-/* CSS */
-#box,
-#second-box {
-  position: static;
-  width: 100px;
-  height: 100px;
-}
-
-.my-text {
-  display: inline;
-  position: static;
-}
-</code></pre>
 <pre><code class="html" contenteditable data-trim>
 <!-- HTML -->
 <div id="box">This is a box</div>
@@ -320,6 +282,10 @@
   a bunch of <span class="my-text">text</span> in it.
 </p>
 </code></pre>
+</div>
+<div class="fragment">
+  <div class="box" style="background-color: #FF2C2D; margin: 0 auto;">This is a box</div>
+  <div class="relative-box" style="background-color:#1B91FF; margin: 0 auto">This is my second box</div>
 </div>
           </section>
           <section>
@@ -337,24 +303,21 @@
 <div class="fragment js-block-code">
             <pre><code class="css" contenteditable data-trim>
 /* CSS */
-#box,
-#second-box {
-  width: 100px;
-  height: 100px;
-}
-
 #second-box {
   position: relative;
-  top: 20px;
+  top: -10px;
   left: 50px;
 }
-
 </code></pre>
 <pre><code class="html" contenteditable data-trim>
 <!-- HTML -->
 <div id="box">This is a box</div>
 <div id="second-box">This is my second box</div>
 </code></pre>
+</div>
+<div class="fragment">
+  <div class="box" style="background-color: #FF2C2D; width: 500px; margin: 0 auto;">This is a box</div>
+  <div class="relative-box" style="background-color:#1B91FF; width: 500px; position:relative; top: -10px; left: 50px; margin: 0 auto">This is my second box</div>
 </div>
           </section>
           <section>
@@ -380,7 +343,6 @@
 
 #second-box {
   position: absolute;
-  height: 100px;
   bottom: 100px;
   left: 50px;
 }
