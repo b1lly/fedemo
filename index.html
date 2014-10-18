@@ -106,9 +106,9 @@
             </ul>
             <aside class="notes">
               <ul>
-                <li>Most important property for controlling layout.</li>
-                <li>All elements have a default display property</li>
+                <li>Different display properties have different behaviors.</li>
                 <li>Behavior of an element is based on the HTML spec.</li>
+                <li>All use the box model in different ways</li>
               </ul>
             </aside>
           </section>
@@ -155,7 +155,7 @@
             <h2>Inline elements</h2>
             <div class="fragment roll-in" data-fragment-index="1">
               <blockquote class="fragment shrink" data-fragment-index="5">
-                By default, inline elements <span class="fragment highlight-green" data-fragment-index="2">inherit the width of their content</span> and
+                Inline elements <span class="fragment highlight-green" data-fragment-index="2">inherit the width of their content</span> and
                 <span class="fragment highlight-green" data-fragment-index="3">will not disrupt the flow</span> of the content around it.
 
                <pre class="fragment" data-fragment-index="4"><code>e.g.: span, a, input, button</code></pre>
@@ -179,9 +179,10 @@
 </div>
             <aside class="notes">
               <ul>
-                <li>Left & right margins/padding, but not top/bottom</li>
-                <li>May only contain data and other inline elements</li>
                 <li>Cannot have a width or height set</li>
+                <li>Respect left & right margins/padding, but not top/bottom</li>
+                <li>May only contain data and other inline elements</li>
+                <li>Allow elements to sit to the left and right</li>
               </ul>
             </aside>
           </section>
@@ -190,7 +191,7 @@
             <div class="fragment roll-in" data-fragment-index="1">
               <blockquote class="fragment shrink" data-fragment-index="5">
                 Inline-block elements <span class="fragment highlight-green" data-fragment-index="2">are a hybrid between block and inline elements.</span>
-                They will not disrupt the flow of content around it and they <span class="fragment highlight-green" data-fragment-index="3">respect width, height, margin and padding properties.</span>
+                They will not disrupt the flow of content around it and they <span class="fragment highlight-green" data-fragment-index="3">respect all width, height, margin and padding properties.</span>
               </blockquote>
             </div>
 
@@ -235,7 +236,7 @@
             </div>
             <div class="fragment roll-in" data-fragment-index="3">
               <blockquote class="fragment shrink" data-fragment-index="5">
-                 With the <span class="fragment highlight-blue" data-fragment-index="4">absolute positioning scheme</span>, boxes are entirely removed from the normal flow and don't interact with it at all. They are positioned relative to their containing block.
+                 With the <span class="fragment highlight-blue" data-fragment-index="4">absolute positioning scheme</span>, boxes are  removed from the normal flow  and are positioned relative to their containing block.
               </blockquote>
             </div>
             <div class="fragment roll-in" data-fragment-index="6">
@@ -245,7 +246,7 @@
             </div>
             <aside class="notes">
               <ul>
-                <li>This leads to the property that text flows along the edge of the floating boxes, except if told differently by the clear CSS property.</li>
+                <li>Floated elements have no line breaks</li>
               </ul>
             </aside>
           </section>
