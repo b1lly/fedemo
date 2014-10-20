@@ -467,11 +467,11 @@
         <section>
           <section>
             <h2>Javascript</h2>
-            <ul>
-              <li class="fragment"><code>Interpretted</code></li>
-              <li class="fragment"><strong>Prototypical</strong></li>
-              <li class="fragment"><em>Loosely typed</em></li>
-            </ul>
+            <aside class="notes">
+              <li><code>Interpretted</code></li>
+              <li><strong>Prototypical</strong></li>
+              <li><em>Loosely typed</em></li>
+            </aside>
           </section>
           <section>
             <h2>Types</h2>
@@ -491,6 +491,27 @@
             </ul>
           </section>
           <section>
+            <h2>What About Arrays?</h2>
+            <div class="fragment roll-in" data-fragment-index="1">
+              <blockquote class="fragment shrink" data-fragment-index="3">
+                Arrays are list-like <span class="fragment highlight-green" data-fragment-index="2">objects</span>
+                whose prototype has methods to perform traversal and mutation operations.
+              </blockquote>
+<pre class="fragment"><code class="javascript" contenteditable data-trim>
+// Javascript
+var myArr = ['this', 'is', 'my', 'array'];
+
+myArr.join(' '); // returns 'this is my array'
+myArr.pop();     // returns 'array' and mutates myArry = ['this', 'is', 'my']
+
+myArr.push('list');  // mutates myArr = ['this', 'is', 'my', 'list']
+
+myArray[0];   // returns 'this'
+myArray['0']; // returns 'this'
+</code></pre>
+            </div>
+          </section>
+          <section>
             <h2>DOM</h2>
             <div class="fragment roll-in" data-fragment-index="1">
               <blockquote class="fragment shrink" data-fragment-index="3">
@@ -508,15 +529,20 @@
             <div class="fragment roll-in" data-fragment-index="1">
 <pre class="fragment"><code class="html" contenteditable data-trim>
 <!-- HTML -->
-<div id="my-node">
-  This is my node
-</div>
+<div class="my-node">This is my node</div>
+<div class="my-node">This is my other node</div>
 </code></pre>
 <pre class="fragment"><code class="javascript" contenteditable data-trim>
 // Javascript
-var myNode = document.getElementById('my-node');
-myNode.onclick = function() {
-  alert('Oh, that tickles!');
+var myNodes = document.getElementsByClassName('my-node');
+// myNodes = [HTMLElement, HTMLElement]
+
+myNodes[0].onclick = function() {
+  alert('Ouch, that hurts!');
+}
+
+myNodes[1].onclick = function() {
+  alert('Ouch, that hurts!');
 }
 </code></pre>
           </section>
@@ -524,24 +550,21 @@ myNode.onclick = function() {
             <h2>Scope</h2>
             <div class="fragment roll-in" data-fragment-index="1">
               <blockquote class="fragment shrink" data-fragment-index="3">
-                Javascript scoping is at the <span class="fragment highlight-green" data-fragment-index="2">function level</span>.
+                Javascript is based on <span class="fragment highlight-green" data-fragment-index="2">function level scope</span>.
               </blockquote>
             </div>
 <pre class="fragment"><code class="javascript" contenteditable data-trim>
 // Javascript
 var x = 1;
 function foo() {
-  var y = 2;
-  x ++;
+
+  for (var i = 0; i < 10; i ++) {
+    var y = i;
+  }
+
   return x + y;
 }
 
-function bar() {
-  return x + y;
-}
-
-foo();
-bar();
 </code></pre>
           </section>
           <section>
@@ -567,33 +590,9 @@ var foo = function() {
   // This is my local scope
   var d = document.getElementById('my-node');
   d.onclick = function() {
-    alert('Oh, that tickles!');
+    alert('Ouch, that hurts!');
   };
 })();
-</code></pre>
-          </section>
-          <section>
-            <h2>Closures</h2>
-            <div class="fragment roll-in" data-fragment-index="1">
-              <blockquote class="fragment shrink" data-fragment-index="3">
-                Inner functions <span class="fragment highlight-green" data-fragment-index="2">remember the environment</span> in which they were created.
-              </blockquote>
-            </div>
-<pre class="fragment"><code class="javascript" contenteditable data-trim>
-function counter() {
-  var private_ = 1;
-
-  function add_() {
-    private_ ++;
-  }
-
-  return {
-    add: add_
-  };
-}
-
-var c = counter();
-c.add();
 </code></pre>
           </section>
           <section>
@@ -603,7 +602,6 @@ c.add();
               <li class="fragment"><em>DOM</em></li>
               <li class="fragment"><em>Scope</em></li>
               <li class="fragment"><strong>Expression vs Declaration</strong></li>
-              <li class="fragment"><strong>Closures</strong></li>
             </ul>
           </section>
         </section>
@@ -613,7 +611,7 @@ c.add();
             <h2>jQuery</h2>
             <div class="fragment roll-in" data-fragment-index="1">
               <blockquote class="fragment shrink" data-fragment-index="3">
-                Abstraction of native Javascript
+                Abstraction of the native DOM/Javascript
               </blockquote>
             </div>
             <div class="fragment roll-in" data-fragment-index="4">
@@ -623,7 +621,7 @@ c.add();
             </div>
             <div class="fragment roll-in" data-fragment-index="7">
               <blockquote class="fragment shrink" data-fragment-index="9">
-                Encourages you to tie your data to the DOM
+                Slow by nature
               </blockquote>
             </div>
           </section>
@@ -631,7 +629,7 @@ c.add();
             <h2>Selectors</h2>
             <div class="fragment roll-in" data-fragment-index="1">
               <blockquote class="fragment shrink" data-fragment-index="3">
-                Use CSS selectors to <span class="highlight-green" data-fragment-index="2">query</span> the DOM
+                Use CSS selectors to <span class="fragment highlight-green" data-fragment-index="2">query</span> the DOM
                 and return a jQuery collection.
               </blockquote>
             </div>
@@ -646,10 +644,10 @@ $('.my-node');  // jQuery('.my-node')
 </code></pre>
 <pre class="fragment"><code class="javascript" contenteditable data-trim>
 // Returns an 'array-like' object with a bunch of jQuery props/methos
-[HTMLELEMENT, HTMLELEMENT]
+// [HTMLElement, HTMLElement]
 
 {
-  append: function() {
+  on: function(event, fn) {
     // Interact with "this collection" and do stuff
   },
   length: 3
@@ -661,36 +659,84 @@ $('.my-node');  // jQuery('.my-node')
             <h2>Traversing</h2>
 <pre class="fragment"><code class="html" contenteditable data-trim>
 <div id="wrap">
-  <div class="my-node">Billy</div>
-  <div class="my-node">billy@yext.com</div>
+  <div class="my-node">My name is Billy</div>
+  <div class="my-node">I am a F.E. Ninja</div>
 </div>
 <div class="my-node">Other data</div>
 </code></pre>
 <pre class="fragment"><code class="javascript" contenteditable data-trim>
 // Find the node with my name and get the contents
-$('#wrap').find('.my-node').first().text();
+$('#wrap').find('.my-node').css('background-color', 'red');
 </code></pre>
 <pre class="fragment"><code class="javascript" contenteditable data-trim>
-$('.my-node').closest('#wrap');  // find the closest parent with this id
-</code></pre>
-<pre class="fragment"><code class="javascript" contenteditable data-trim>
-$('#wrap').find('.my-node').first(); // children with class 'my-node' of '#wrap'
 $('.my-node').closest('#wrap');  // find the closest parent with this id
 </code></pre>
           </section>
 
           <section>
             <h2>Templating</h2>
-          </section>
+<pre class="fragment"><code class="html" contenteditable data-trim>
+<body>
+<script type="text/template" id="js-user-tmpl">
+  <div class="user-wrap">
+    <div class="name">Billy Bastardi</div>
+    <div class="email">billy@yext.com</div>
+  </div>
+</script>
+</body>
+</code></pre>
+<pre class="fragment"><code class="javascript" contenteditable data-trim>
+var $tmpl = $('#js-user-tmpl');
 
+function createUser(name, email) {
+  var $newUser = $tmpl.clone();
+
+  $newUser.find('.name').text(name);
+  $newUser.find('.email').text(email);
+
+  $('body').append($newUser.html());
+};
+</code></pre>
+<pre class="fragment"><code class="javascript" contenteditable data-trim>
+createUser('John Smith', 'johnsmith@yext.com');
+createUser('Jane Doe', 'janedoe@yext.com');
+</code></pre>
+          </section>
           <section>
             <h2>Event Handling</h2>
+<pre class="fragment"><code class="html" contenteditable data-trim>
+<div class="my-node">This is my node</div>
+<div class="my-node">This is my other node</div>
+</code></pre>
+<pre class="fragment"><code class="javascript" contenteditable data-trim>
+$('.my-node').on('click', function() {
+  alert('Ouch, that hurts');
+});
+</code></pre>
+          </section>
+          <section>
+            <h2>Event Handling</h2>
+<pre class="fragment"><code class="html" contenteditable data-trim>
+<div id="add-user">
+  <input type="text" name="name" class="js-input-name">
+  <input type="text" name="email" class="js-input-email">
+  <button class="js-add-user-btn">Post it!</button>
+</div>
+</code></pre>
+<pre class="fragment"><code class="javascript" contenteditable data-trim>
+$('.js-add-user-btn').on('click', function() {
+  var msg = $('.js-input-name').val(),
+      author = $('.js-input-email').val();
+
+  createPost(msg, author);
+});
+</code></pre>
           </section>
         </section>
 
         <section>
           <h1>THE END</h1>
-          <h3>BY Hakim El Hattab / hakim.se</h3>
+          <h3>BY Billy Bastardi / hakim.se</h3>
         </section>
 
       </div>
