@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <!-- '#main-wrap' will be a container for our entire layout.
+             Since "block level" elements inherit the width of their parent,
+             all of the child 'block elements' of #main-wrap will inherit the width of what we define here.
+
+             This gives us the flexibility to change the overall width of our layout without much work.
+
+             It also allows us to easily position everything to the center of the page.
+
+             e.g css:
+                #main-wrap {
+                    width: 960px;
+                    margin: 0 auto;
+                }
+        -->
+        <div id="main-wrap">
+            <!--
+                The '#header' contains other elements and inherits the width of it's parent.
+                It has no elements to the left or right. Because of this, it's a great candidate
+                for a block level element.
+            -->
+            <div id="header">
+                <h3>Make a post</h3>
+
+                <!--
+                    Inline elements will flow horizontally by default, and because they come after a block element,
+                    they will start on a new line (underneath the element above).
+                 -->
+                <input type="text">
+                <button>Submit</button>
+            </div>
+
+            <!--
+                '.post-wrap' will contain our two column layout and should inherit the width of the parent.
+                Since this block will be repeated for each post, we use a class as an id.
+            -->
+            <div class="post-wrap">
+                <!--
+                    Since we want a two column layout, let's use the layout trick where we float
+                    the '.left-col' to the left, give it a width, and then the right column ('.post-msg') will have
+                    a margin-left set in order to offset it (to account for the left column).
+
+                    Remember, when we add border or padding to the left-col, we have to adjust our margin left
+                    to account for that as well.
+
+                    e.g. css:
+                        .left-col {
+                            width: 200px;
+                            float: left;
+                        }
+
+                        .post-body {
+                            margin-left: 200px;
+                        }
+                -->
+                <div class="left-col">
+                    <div class="img">IMG</div>
+                    <h2>Billy Bastard</h2>
+                    <h3>Front End Ninja</h3>
+                </div>
+                <div class="post-body">
+                    This is my message
+                    <span class="close">X</span>
+                </div>
+            </div>
+
+        </div>
+        <script src="js/vendor/jquery-1.11.1.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,70 @@
+#main-wrap {
+    width: 960px;
+    /**
+        Since we set a fixed width, it's possible for
+        the browser viewport to be wider then the actual element.
+
+        We can set the left and right margin to 'auto', which is a trick
+        to center the element in it's container. It basically gets the
+        remaining space of the container, and divides it evenly
+        between both sides of the elements margin.
+    */
+    margin: 0 auto;
+}
+
+#header {
+    background-color: #c0c0c0; /* grey */
+    padding: 10px;
+}
+
+#header input {
+    display: inline-block;
+    width: 860px;
+}
+
+#header button {
+    background-color: orange;
+}
+
+.post-wrap {
+    margin-top: 25px;
+
+    /**
+        Since our child element '.post-wrap' is part of the 'float positioning scheme',
+        we have a containment problem. We can fix that with a clearfix or our 'overflow' trick.
+    */
+    border: 1px #808080 solid;
+    overflow: hidden;
+}
+
+.post-wrap .left-col {
+    float: left;
+    width: 200px;
+    padding: 20px;
+    background-color: #c0c0c0;
+    text-align: center;
+}
+
+.post-wrap .left-col .img {
+    background-color: #fff;
+    display: block;
+    height: 100px;
+}
+
+.post-wrap .post-body {
+    /**
+        Since the '.close' element is being position absolute based on this element,
+        we need to position this element relative in order for the '.close' element to know about it.
+    */
+    position: relative;
+    margin-left: 240px;
+    padding: 10px;
+}
+
+.post-body .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px;
+    background-color: #c0c0c0;
+}

@@ -361,6 +361,14 @@
               </ul>
             </aside>
           </section>
+          <section>
+            <h2>Absolute Example</h2>
+            <div class="fragment">
+              <div class="box" style="background-color: #FF2C2D; width: 900px; height: 500px; position: relative; margin: 0 auto;">This is my relative containing
+              <div class="relative-box" style="background-color:#1B91FF; height: 100px; position:absolute; left: 50px; bottom: 100px; padding: 10px">This is my absolute box</div>
+              </div>
+            </div>
+          </section>
           <section data-transition="zoom">
             <h2>Fixed Position</h2>
             <div class="fragment roll-in" data-fragment-index="0">
@@ -728,7 +736,7 @@ $('.js-add-user-btn').on('click', function() {
   var msg = $('.js-input-name').val(),
       author = $('.js-input-email').val();
 
-  createPost(msg, author);
+  createUser(msg, author);
 });
 </code></pre>
           </section>
@@ -736,7 +744,7 @@ $('.js-add-user-btn').on('click', function() {
 
         <section>
           <h1>THE END</h1>
-          <h3>BY Billy Bastardi / hakim.se</h3>
+          <h3>BY Billy Bastardi / @wabism</h3>
         </section>
 
       </div>
